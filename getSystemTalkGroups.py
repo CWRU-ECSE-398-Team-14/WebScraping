@@ -41,13 +41,6 @@ for tr in trs:
           row = row + " " + td.text + ", "
           #print(td.text)
       if len(tds) > 0:
-          print(row[:-2])                         #UNCOMMENT THIS LINE to get talkgroups
+          print(row[:-2])                         
       row = "" 
       
-          
-# with open('output.txt', 'w') as f:
-#     for tr in soup.find_all('tr')[2:]:
-#         tds = tr.find_all('td')
-#         f.write("Nome: %s, Cognome: %s, Email: %s\n" % \
-#               (tds[0].text, tds[1].text, tds[2].text))
-          

@@ -27,19 +27,20 @@ soup = BeautifulSoup(page.text, "html.parser")
 freqTable = soup.find('table', attrs ={'class':'rrtable w1p'})
 #tbody = freqTable.find('tbody')
 trs = freqTable.find_all('tr')
+
+thr = trs[0].find_all('th')
+col_hddr = ""
+for th in thr:
+    col_hddr = col_hddr + " " + th.text + ", "
+print(col_hddr[:-2])
+
 row = ""
 for tr in trs:
       tds = tr.find_all('td')
       for td in tds:
           row = row + " " + td.text + ", "
           #print(td.text)
-      print(row[:-2])                         #UNCOMMENT THIS LINE to get talkgroups
+      if len(tds) > 0:
+          print(row[:-2])                         
       row = "" 
       
-          
-# with open('output.txt', 'w') as f:
-#     for tr in soup.find_all('tr')[2:]:
-#         tds = tr.find_all('td')
-#         f.write("Nome: %s, Cognome: %s, Email: %s\n" % \
-#               (tds[0].text, tds[1].text, tds[2].text))
-          

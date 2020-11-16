@@ -21,6 +21,7 @@ finalSID_set = set()
 cid = ""
 sidTemp = "sid="
 p25table = soup.find_all('table', attrs ={'class':'rrtable content'}) #loop through this
+print("System ID, System Name") # adam needs this for his code to work
 for table in p25table:
     aTag = table.find_all('a')
     for a in aTag:
@@ -40,8 +41,8 @@ for table in p25table:
     #if statement here checking if SID known
         if finalSID not in finalSID_set and checkp25 == 1:
             finalSID_set.add(finalSID)
-            print(finalSID)
+            print(finalSID, end='')
             finalSystemName = tempName[tempName2begin+1:tempName2end]
-            print(finalSystemName + ", ")
+            print(finalSystemName.strip())# + ", ")
             checkp25 =0
 
